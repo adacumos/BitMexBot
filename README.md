@@ -1,7 +1,7 @@
-# BitMEX simple trading robot.
+# Mexbot
 
 ### Overview
-This is a sample trading bot for use with BitMEX. It is free to use and modify for your own strategies.
+This is a sample trading bot for use with BitMEX. It is a fork from https://github.com/IlyaKrotov/BitMEX-simple-trading-robot. It is free to use and modify for your own strategies.
 
 **Disclaimer: All persons who using this code do so at their own risk.**
 
@@ -31,18 +31,5 @@ If you want to change work logic of bot, you have to change 2 main things:
 
 1. Logic of prediction in strategy.py (look at method **predict**)
 2. Logic of trade execution in trader.py (look at method **execute_trade**)
-
-
----
-#### Notes
-This code was written for my publication in Habr - https://habr.com/post/358398/.
-
-Also you can look at publication in Medium - https://medium.com/@ilia.krotov/margin-trading-robot-on-the-bitmex-exchange-d94dd46f82c5.
-
-Here my affiliate link for your registration on BitMEX.
-
-https://www.bitmex.com/register/dduBF7
-
-Users who have signed up with a valid affiliate link will receive a **10% fee discount for 6 months.**
 
 
