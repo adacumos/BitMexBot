@@ -4,8 +4,32 @@ This file contains a collection of common indicators, which are based on third p
 """
 from numpy.core.records import ndarray
 from pandas import Series, DataFrame
+import pandas as pd
 import numpy as np
 # from math import log
+
+
+def heikinashi(bars):
+    bars = bars.copy()
+    bars['ha_close'] = (bars['open'] + bars['high'] +
+                        bars['low'] + bars['close']) / 4
+
+    bars['ha_open'] = (bars['open'].shift(1) + bars['close'].shift(1)) / 2
+    bars.loc[:1, 'ha_open'] = bars['open'].values[0]
+    for x in range(2):
+        bars.loc[1:, 'ha_open'] = (
+            (bars['ha_open'].shift(1) + bars['ha_close'].shift(1)) / 2)[1:]
+
+    bars['ha_high'] = bars.loc[:, ['high', 'ha_open', 'ha_close']].max(axis=1)
+    bars['ha_low'] = bars.loc[:, ['low', 'ha_open', 'ha_close']].min(axis=1)
+
+    return pd.DataFrame(
+        index=bars.index,
+        data={
+            'open': bars['ha_open'],
+            'high': bars['ha_high'],
+            'low': bars['ha_low'],
+            'close': bars['ha_close']})
 
 
 def crossed(series1, series2, direction=None):
