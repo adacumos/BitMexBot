@@ -1,4 +1,4 @@
-# Mexbot
+# BitMexbot
 
 ### Overview
 This is a sample trading bot for use with BitMEX. It is a fork from https://github.com/IlyaKrotov/BitMEX-simple-trading-robot. It is free to use and modify for your own strategies.
